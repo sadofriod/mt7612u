@@ -35,7 +35,7 @@
 #include "rtmp_os.h"
 
 #define DECLARE_TIMER_FUNCTION(_func)			\
-	void rtmp_timer_##_func(unsigned long data)
+	void rtmp_timer_##_func(struct timer_list *timer)
 
 #define GET_TIMER_FUNCTION(_func)				\
 	(PVOID)rtmp_timer_##_func
@@ -85,9 +85,9 @@ typedef struct _RTMP_TIMER_TASK_QUEUE_ {
 } RTMP_TIMER_TASK_QUEUE;
 
 #define BUILD_TIMER_FUNCTION(_func)										\
-void rtmp_timer_##_func(unsigned long data)										\
+void rtmp_timer_##_func(struct timer_list *timer)										\
 {																			\
-	PRALINK_TIMER_STRUCT	_pTimer = (PRALINK_TIMER_STRUCT)data;				\
+	PRALINK_TIMER_STRUCT	_pTimer = (PRALINK_TIMER_STRUCT)timer;				\
 	RTMP_TIMER_TASK_ENTRY	*_pQNode;										\
 	RTMP_ADAPTER			*_pAd;											\
 																			\
@@ -99,9 +99,9 @@ void rtmp_timer_##_func(unsigned long data)										\
 }
 #else /* !RTMP_TIMER_TASK_SUPPORT */
 #define BUILD_TIMER_FUNCTION(_func)										\
-void rtmp_timer_##_func(unsigned long data)										\
+void rtmp_timer_##_func(struct timer_list *timer)										\
 {																			\
-	PRALINK_TIMER_STRUCT	pTimer = (PRALINK_TIMER_STRUCT) data;				\
+	PRALINK_TIMER_STRUCT	pTimer = (PRALINK_TIMER_STRUCT)timer;				\
 																			\
 	_func(NULL, (PVOID) pTimer->cookie, NULL, pTimer); 							\
 	if (pTimer->Repeat)														\

@@ -1282,7 +1282,7 @@ ifeq ($(PLATFORM),PC)
 # Linux 2.6
 KSRC = /lib/modules/$(shell uname -r)/build
 CROSS_COMPILE =
-EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN
+EXTRA_CFLAGS += -DCONFIG_LITTLE_ENDIAN -I/usr/lib/modules/$(shell uname -r)/build/include/
 SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)
 ARCH ?= $(SUBARCH)
 endif

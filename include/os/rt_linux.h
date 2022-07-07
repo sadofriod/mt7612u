@@ -159,8 +159,8 @@ extern	const struct iw_handler_def rt28xx_ap_iw_handler_def;
 /***********************************************************************************
  *	Compiler related definitions
  ***********************************************************************************/
-#undef __inline
-#define __inline		static inline
+//#undef __inline
+//#define __inline		static inline
 #define IN
 #define OUT
 #define INOUT
@@ -281,6 +281,12 @@ struct iw_statistics *rt28xx_get_wireless_stats(
  *	OS file operation related data structure definitions
  ***********************************************************************************/
 typedef struct file* RTMP_OS_FD;
+
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5,10,0)
+typedef struct {
+        /* empty dummy */
+} mm_segment_t;
+#endif
 
 typedef struct _OS_FS_INFO_
 {
@@ -537,7 +543,7 @@ typedef struct tasklet_struct  *POS_NET_TASK_STRUCT;
 typedef struct timer_list	OS_NDIS_MINIPORT_TIMER;
 typedef struct timer_list	OS_TIMER;
 
-typedef void (*TIMER_FUNCTION)(unsigned long);
+typedef void (*TIMER_FUNCTION)(struct timer_list*);
 
 
 #define OS_WAIT(_time) \

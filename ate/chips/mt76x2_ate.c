@@ -262,7 +262,7 @@ static void mt76x2_ate_switch_channel(RTMP_ADAPTER *ad)
 		RTMP_SEM_EVENT_WAIT(&ad->tssi_lock, ret);
 		if (ret != 0) {
 			DBGPRINT(RT_DEBUG_ERROR, ("tssi_lock get failed(ret=%d)\n", ret));
-			return STATUS_UNSUCCESSFUL;
+			return;
 		}
 	}
 #endif /* RTMP_MAC_USB */

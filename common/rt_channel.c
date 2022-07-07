@@ -2052,6 +2052,7 @@ INT get_vht_neighbor_index(IN UCHAR channel)
 		|| (channel == 144) || (channel == 161)) {
 		return -3;
 	}
+	return 1;
 }
 
 BOOLEAN AC_ChannelGroupCheck(
