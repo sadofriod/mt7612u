@@ -676,13 +676,13 @@ static int rtusb_probe(struct usb_interface *intf, const USB_DEVICE_ID *id)
 #ifdef IFUP_IN_PROBE
 	else
 	{
-		if (VIRTUAL_IF_UP(pAd) != 0)
-		{
-			pAd = usb_get_intfdata(intf);
-			usb_set_intfdata(intf, NULL);
-			rt2870_disconnect(dev, pAd);
-			rv = -ENOMEM;
-		}
+		// if (VIRTUAL_IF_UP(pAd) != 0)
+		// {
+		// 	pAd = usb_get_intfdata(intf);
+		// 	usb_set_intfdata(intf, NULL);
+		// 	rt2870_disconnect(dev, pAd);
+		// 	rv = -ENOMEM;
+		// }
 	}
 #endif /* IFUP_IN_PROBE */
 	return rv;

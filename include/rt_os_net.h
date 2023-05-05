@@ -208,22 +208,22 @@ PNET_DEV RtmpPhyNetDevMainCreate(VOID *pAd);
 int rt28xx_close(VOID *dev);
 int rt28xx_open(VOID *dev);
 
-__inline INT VIRTUAL_IF_UP(VOID *pAd)
-{
-	RT_CMD_INF_UP_DOWN InfConf = { rt28xx_open, rt28xx_close };
-	if (RTMP_COM_IoctlHandle(pAd, NULL, CMD_RTPRIV_IOCTL_VIRTUAL_INF_UP,
-						0, &InfConf, 0) != NDIS_STATUS_SUCCESS)
-		return -1;
-	return 0;
-}
+// __inline INT VIRTUAL_IF_UP(VOID *pAd)
+// {
+// 	RT_CMD_INF_UP_DOWN InfConf = { rt28xx_open, rt28xx_close };
+// 	if (RTMP_COM_IoctlHandle(pAd, NULL, CMD_RTPRIV_IOCTL_VIRTUAL_INF_UP,
+// 						0, &InfConf, 0) != NDIS_STATUS_SUCCESS)
+// 		return -1;
+// 	return 0;
+// }
 
-__inline VOID VIRTUAL_IF_DOWN(VOID *pAd)
-{
-	RT_CMD_INF_UP_DOWN InfConf = { rt28xx_open, rt28xx_close };
-	RTMP_COM_IoctlHandle(pAd, NULL, CMD_RTPRIV_IOCTL_VIRTUAL_INF_DOWN,
-						0, &InfConf, 0);
-	return;
-}
+// __inline VOID VIRTUAL_IF_DOWN(VOID *pAd)
+// {
+// 	RT_CMD_INF_UP_DOWN InfConf = { rt28xx_open, rt28xx_close };
+// 	RTMP_COM_IoctlHandle(pAd, NULL, CMD_RTPRIV_IOCTL_VIRTUAL_INF_DOWN,
+// 						0, &InfConf, 0);
+// 	return;
+// }
 
 #ifdef RTMP_MODULE_OS
 

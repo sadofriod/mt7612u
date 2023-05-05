@@ -142,8 +142,8 @@ INT MBSS_VirtualIF_Open(PNET_DEV pDev)
 
 	RTMP_AP_IoctlHandle(pAd, NULL, CMD_RTPRIV_IOCTL_MBSS_OPEN, 0, pDev, 0);
 
-	if (VIRTUAL_IF_UP(pAd) != 0)
-		return -1;
+	// if (VIRTUAL_IF_UP(pAd) != 0)
+	// 	return -1;
 
 	/* increase MODULE use count */
 	RT_MOD_INC_USE_COUNT();

@@ -111,8 +111,8 @@ INT ApCli_VirtualIF_Open(PNET_DEV dev_p)
 
 	DBGPRINT(RT_DEBUG_TRACE, ("%s: ===> %s\n", __FUNCTION__, RTMP_OS_NETDEV_GET_DEVNAME(dev_p)));
 
-	if (VIRTUAL_IF_UP(pAd) != 0)
-		return -1;
+	// if (VIRTUAL_IF_UP(pAd) != 0)
+	// 	return -1;
 
 	/* increase MODULE use count */
 	RT_MOD_INC_USE_COUNT();

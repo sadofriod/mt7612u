@@ -125,7 +125,7 @@ int MainVirtualIF_close(IN struct net_device *net_dev)
 
 #ifdef IFUP_IN_PROBE
 #else
-	VIRTUAL_IF_DOWN(pAd);
+	// VIRTUAL_IF_DOWN(pAd);
 #endif /* IFUP_IN_PROBE */
 
 	RT_MOD_DEC_USE_COUNT();
@@ -174,8 +174,8 @@ int MainVirtualIF_open(struct net_device *net_dev)
 		DBGPRINT(RT_DEBUG_TRACE, ("Card not ready, NDIS_STATUS_SUCCESS!\n"));
 	}
 #else
-	if (VIRTUAL_IF_UP(pAd) != 0)
-		return -1;
+	// if (VIRTUAL_IF_UP(pAd) != 0)
+	// 	return -1;
 #endif /* IFUP_IN_PROBE */
 
 	RT_MOD_INC_USE_COUNT();
