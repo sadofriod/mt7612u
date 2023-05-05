@@ -15,8 +15,10 @@ For compiling type
 in source dir  
 
 # Install firmware (for debian 11)
+```shell
 wget http://ftp.us.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-misc-nonfree_20230210-4~bpo11+1_all.deb
 sudo dpkg -i firmware-misc-nonfree_20230210-4~bpo11+1_all.deb
+```
 
 For install the driver use  
 `sudo insmod mt7612u.ko`  
